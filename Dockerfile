@@ -8,7 +8,9 @@ RUN yum install -y epel-release && yum install -y nginx
 RUN yum clean all
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 RUN mkdir -p /etc/nginx/vhosts/
-RUN cp testsite.dev.conf /etc/nginx/vhosts/
+RUN mkdir -p /var/www/testsite.dev/html
+RUN COPY testsite.dev.conf /etc/nginx/vhosts/
+RUN COPY index.html /var/www/testsite.dev/html
 RUN sed -i "0,/include/s/$/\ninclude \/etc\/nginx\/vhosts\/*.conf;/i" /etc/nginx/nginx.conf
 
 CMD [ "nginx" ]
