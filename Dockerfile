@@ -9,8 +9,8 @@ RUN yum clean all
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 RUN mkdir -p /etc/nginx/vhosts/
 RUN mkdir -p /var/www/testsite.dev/html
-RUN COPY testsite.dev.conf /etc/nginx/vhosts/testsite.dev.conf
-RUN COPY index.html /var/www/testsite.dev/html/index.html
+COPY testsite.dev.conf /etc/nginx/vhosts/testsite.dev.conf
+COPY index.html /var/www/testsite.dev/html/index.html
 RUN sed -i "0,/include/s/$/\ninclude \/etc\/nginx\/vhosts\/*.conf;/i" /etc/nginx/nginx.conf
 
 CMD [ "nginx" ]
