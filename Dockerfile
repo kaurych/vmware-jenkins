@@ -1,6 +1,6 @@
 FROM rockylinux:9
 
-MAINTAINER Dmitriy Mosk <master@dmosk.ru>
+MAINTAINER Sergey Kaurov <skaurov@ibs.ru>
 
 ENV TZ=Europe/Moscow
 
