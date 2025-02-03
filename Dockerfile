@@ -6,9 +6,10 @@ ENV TZ=Europe/Moscow
 
 RUN yum install -y epel-release && yum install -y nginx
 RUN yum clean all
-RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+#RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 RUN mkdir -p /var/www/testsite.dev/html
 COPY testsite.dev /etc/nginx/conf.d/testsite.dev
 COPY index.html /var/www/testsite.dev/html/index.html
 
-CMD [ "nginx" ]
+#CMD [ "nginx" ]
+CMD ["nginx", "-g", "daemon off;"]
