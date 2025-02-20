@@ -1,4 +1,4 @@
-FROM rockylinux:9
+FROM centos:latest
 
 MAINTAINER Sergey Kaurov <skaurov@ibs.ru>
 
